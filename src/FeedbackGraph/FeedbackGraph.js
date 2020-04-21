@@ -1,5 +1,5 @@
 import React from 'react';
-import { VictoryChart, VictoryBar} from 'victory';
+import { VictoryChart, VictoryBar } from 'victory';
 
 const FeedbackGraph = ({ data }) => {
 	const transformData = () => {
@@ -13,12 +13,18 @@ const FeedbackGraph = ({ data }) => {
 	}
 
 	return (
-		<VictoryChart>
-			<VictoryBar
-				style={{ data: { fill: "#c43a31" } }}
-				data={transformData()}
-  		/>
-		</VictoryChart>
+		<div className="chart">
+			<h4>{`${data.length} customer ratings`}</h4>
+			<VictoryChart domainPadding={20} animate={{ duration: 100 }}>
+				<VictoryBar
+					cornerRadius={3}
+					style={{ data: { fill: "#32368a" } }}
+					data={transformData()}
+					categories={{x: ['1','2','3','4','5']}}
+					domain={{x: [1,5]}}
+				/>
+			</VictoryChart>
+		</div>
 	);
 }
 

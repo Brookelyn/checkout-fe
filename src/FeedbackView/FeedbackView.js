@@ -14,13 +14,13 @@ const commentList = [
 	{
 		name: 'Mirrors',
 		id: '321tfg',
-		rating: 2,
+		rating: 1,
 		comment: 'I could tell it was fake from a distance. Even the catnip my owner sprinkled around it couldn\'t fool me!'
 	},
 	{
 		name: 'Riddick',
 		id: '958hsl',
-		rating: 4,
+		rating: 5,
 		comment: 'Fish! I like Fish! I think something was wrong as it gave me a stomach ache? But I will totally eat another one if you let me.'
 	},
 	{
@@ -42,20 +42,17 @@ class FeedbackView extends React.Component {
 		this.setState({ allComments: [comment, ...this.state.allComments]})
 	}
 
-
 	render() {
 		const { allComments } = this.state;
 
-		console.log(allComments)
-
 		return (
-			<Fragment>
-				<h1>Have something to say? Let us know what you think!</h1>
+			<div className="feedback-view">
+				<h1>Share your feedback</h1>
 				<div className="flex">
-					<div className="flex-1">
+					<div className="flex-1 w-50">
 						<FeedbackForm onAddComment={this.onAddComment} />
 					</div>
-					<div className="flex-1">
+					<div className="flex-1 w-50">
 						<FeedbackGraph data={allComments.map(comment => comment.rating)} />
 						</div>
 				</div>
@@ -64,7 +61,7 @@ class FeedbackView extends React.Component {
 						<FeedbackFeed commentList={allComments} />
 						</div>
 				</div>
-			</Fragment>
+			</div>
 		);
 	}
 }

@@ -5,3 +5,111 @@
 .flex-1 {
 	flex-grow: 1;
 }
+
+.flex-justify-end {
+	justify-content: flex-end;
+}
+
+.hidden {
+	display: none;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+}
+
+.input-group {
+	border: none;
+	margin: 6px 0 6px 0;
+}
+
+.w-50 {
+	width: 50%;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.chart {
+	padding: 18px;
+	margin-left: 24px;
+	box-sizing: border-box;
+
+}
+
+.chart > h4 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+} 
+
+.star {
+	display: inline-block;
+	margin: 0 2px 0 2px;
+}
+
+input, textarea, button {
+	border: none;
+}
+
+input:focus, textarea:focus {
+	outline-color: #32368a;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.border-box {
+	box-sizing: border-box;
+}
+
+label {
+	width: 100%;
+}
+
+.input {
+	height: 32px;
+	width: 100%;
+	border: 1px solid #afb3b0;
+	border-radius: 2px;
+	padding: 0px 8px 0px 8px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.input-label {
+	font-size: 12px;
+	margin-bottom: 6px;
+}
+
+.feedback-view {
+	padding: 24px;
+}
+
+.textarea {
+	width: 100%;
+	border: 1px solid #afb3b0;
+	border-radius: 2px;
+	padding: 8px;
+	font-size: 16px;
+	min-height: 98px;
+	box-sizing: border-box;
+}
+
+.submit-button {
+	height: 32px;
+	background-color: #afb3b0;
+	color: white;
+	border-radius: 8px;
+	font-size: 14px;
+}
+
+.submit-button.active {
+	background-color: #32368a;
+	color: white;
+}
+
+
