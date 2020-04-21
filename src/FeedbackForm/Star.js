@@ -1,12 +1,12 @@
 import React from 'react';
 
 // Source: uxwing.com/star-empty-icon
-const Star = ({ isFilled = false }) => (
+const Star = ({ isFilled = false, size = "large" }) => (
 	<div className="star">
     <svg 
 			xmlns="http://www.w3.org/2000/svg" 
-			width="30" 
-			height="30" 
+			width={size === 'large' ? '30' : '16'} 
+			height={size === 'large' ? '30' : '16'}  
 			viewBox="0 0 640 640" 
 			shapeRendering="geometricPrecision" 
 			textRendering="geometricPrecision" 

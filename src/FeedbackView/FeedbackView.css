@@ -10,6 +10,10 @@
 	justify-content: flex-end;
 }
 
+.flex-align-items-center {
+	align-items: center;
+}
+
 .hidden {
 	display: none;
 }
@@ -112,4 +116,23 @@ label {
 	color: white;
 }
 
+.listing {
+	margin-bottom: 24px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #32368a;
+}
+
+.listing-name {
+	margin-bottom: 4px;
+	padding: 0;
+}
+
+.pb-8 {
+	padding-bottom: 8px;
+}
+
+.feed {
+	margin-top: 24px;
+	border-top: 1px solid #dcdcde;
+}
 

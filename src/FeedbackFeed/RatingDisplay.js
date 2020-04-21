@@ -5,7 +5,7 @@ const RatingDisplay = ({rating}) => {
 	const stars = [];
 
 	for (let i = 0; i < rating; i++) {
-		stars.push(<Star key={i} isFilled />);
+		stars.push(<Star key={i} isFilled size="small" />);
 	}
 
 	return <div>{stars}</div>

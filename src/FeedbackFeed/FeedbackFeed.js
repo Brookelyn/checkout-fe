@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import FeedbackListing from './FeedbackListing';
 
 const FeedbackFeed = ({ commentList }) => {
@@ -7,7 +7,8 @@ const FeedbackFeed = ({ commentList }) => {
 	}
 
 	return (
-		<Fragment>
+		<div className="feed">
+			<h3>Customer reviews</h3>
 			{commentList.map(comment => 
 				<FeedbackListing 
 					key={comment.id} 
@@ -16,7 +17,7 @@ const FeedbackFeed = ({ commentList }) => {
 					comment={comment.comment}
 				/>
 			)}
-		</Fragment>
+		</div>
 	);
 }
 

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './FeedbackView.css'
 import FeedbackForm from '../FeedbackForm/FeedbackForm';
 import FeedbackGraph from '../FeedbackGraph/FeedbackGraph';
