@@ -20,7 +20,7 @@ const FeedbackGraph = ({ data }) => {
 					cornerRadius={3}
 					style={{ data: { fill: "#32368a" } }}
 					data={transformData()}
-					categories={{x: ['1','2','3','4','5']}}
+					categories={{x: ['1 star','2 stars','3 stars','4 stars','5 stars']}}
 					domain={{x: [1,5]}}
 				/>
 			</VictoryChart>
