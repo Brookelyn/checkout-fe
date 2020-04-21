@@ -1,14 +1,11 @@
 import React from 'react';
-import { VictoryChart, VictoryLine} from 'victory';
+import { VictoryChart, VictoryBar} from 'victory';
 
 const FeedbackGraph = () => {
 	return (
 		<VictoryChart>
-			<VictoryLine
-				style={{
-					data: { stroke: "#c43a31" },
-					parent: { border: "1px solid #ccc"}
-				}}
+			<VictoryBar
+				style={{ data: { fill: "#c43a31" } }}
 				data={[
 					{ x: 1, y: 2 },
 					{ x: 2, y: 3 },
@@ -16,7 +13,7 @@ const FeedbackGraph = () => {
 					{ x: 4, y: 4 },
 					{ x: 5, y: 7 }
 				]}
-			/>
+  		/>
 		</VictoryChart>
 	);
 }
