@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Star from './Star';
 
-const FeedbackForm =() => {
+const FeedbackForm = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [rating, setRating] = useState(0);
@@ -12,7 +12,7 @@ const FeedbackForm =() => {
 		setEmail('');
 		setRating(0);
 		setComment('');
-		
+
 		console.log({
 			name,
 			email,
