@@ -32,21 +32,36 @@ const commentList = [
 ]
 
 class FeedbackView extends React.Component {
+	state = {
+		allComments: commentList,
+	}
+
+	onAddComment = (comment) => {
+		// In a proper app this function wouldn't exist; the commentList data should be coming
+		// from an external source. On adding a new comment, I'd expect to receive a new list of comments to display.
+		this.setState({ allComments: [comment, ...this.state.allComments]})
+	}
+
+
 	render() {
+		const { allComments } = this.state;
+
+		console.log(allComments)
+
 		return (
 			<Fragment>
 				<h1>Have something to say? Let us know what you think!</h1>
 				<div className="flex">
 					<div className="flex-1">
-						<FeedbackForm />
+						<FeedbackForm onAddComment={this.onAddComment} />
 					</div>
 					<div className="flex-1">
-						<FeedbackGraph />
+						<FeedbackGraph data={allComments.map(comment => comment.rating)} />
 						</div>
 				</div>
 				<div>
 					<div>
-						<FeedbackFeed commentList={commentList} />
+						<FeedbackFeed commentList={allComments} />
 						</div>
 				</div>
 			</Fragment>

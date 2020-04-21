@@ -8,7 +8,14 @@ const FeedbackFeed = ({ commentList }) => {
 
 	return (
 		<Fragment>
-			{commentList.map(comment => <FeedbackListing name={comment.name} rating={comment.rating} comment={comment.comment} /> )}
+			{commentList.map(comment => 
+				<FeedbackListing 
+					key={comment.id} 
+					name={comment.name} 
+					rating={comment.rating} 
+					comment={comment.comment}
+				/>
+			)}
 		</Fragment>
 	);
 }

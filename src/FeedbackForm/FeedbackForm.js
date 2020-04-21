@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
 import Star from './Star';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ onAddComment }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [rating, setRating] = useState(0);
 	const [comment, setComment] = useState('');
 
-	const onClickSubmit = () => {
-		setName('');
-		setEmail('');
-		setRating(0);
-		setComment('');
-
-		console.log({
-			name,
-			email,
-			rating,
-			comment
-		});
-	}
-
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault();
-				onClickSubmit();
+
+				// This function should ideally be a PATCH or POST call
+				// to the relevant endpoint.
+				onAddComment({
+					name,
+					email,
+					rating,
+					comment,
+					// The ID should be something unique and likely related to how it's stored in the DB, but
+					// this is an easy (although not truly random) shortcut
+					id: Math.random().toString(36).substr(2, 5),
+				});
 			}}
 		>
 			<label htmlFor="name">
