@@ -33,7 +33,7 @@ const commentList = [
 
 class FeedbackView extends React.Component {
 	state = {
-		allComments: commentList,
+		allComments: commentList || [],
 	}
 
 	onAddComment = (comment) => {
@@ -47,7 +47,7 @@ class FeedbackView extends React.Component {
 
 		return (
 			<div className="feedback-view">
-				<h1>Share your feedback</h1>
+				<h1 data-test="feedback-form-header">Share your feedback</h1>
 				<div className="flex">
 					<div className="flex-1 w-50">
 						<FeedbackForm onAddComment={this.onAddComment} />
@@ -59,7 +59,7 @@ class FeedbackView extends React.Component {
 				<div>
 					<div>
 						<FeedbackFeed commentList={allComments} />
-						</div>
+					</div>
 				</div>
 			</div>
 		);

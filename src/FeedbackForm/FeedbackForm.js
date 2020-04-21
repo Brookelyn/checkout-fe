@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useRatingInput from './useRatingInput';
 
 const FeedbackForm = ({ onAddComment }) => {
+	const [canUserSubmit, setCanUserSubmit] = useState(false)
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [rating, setRating, RatingInput] = useRatingInput(0);
 	const [comment, setComment] = useState('');
+
+	useEffect(() => {
+		setCanUserSubmit(!!name.length && !!email.length && rating !== 0 && !!comment.length);
+		}, 
+		[name, email, rating, comment]);
 
 	const onClickSubmit = () => {
 		setName('');
@@ -26,33 +32,26 @@ const FeedbackForm = ({ onAddComment }) => {
 		});
 	}
 
-	const canSubmitForm = !!name.length && !!email.length && rating !== 0 && !!comment.length;
-
 	return (
-		<div>
-			<form
-				onSubmit={(e) => {
-					e.preventDefault();
-
-					onClickSubmit();
-				}}
-			>
-			<div className="input-group">
-				<label htmlFor="name">
-				<p className="input-label">Name</p>
-					<input 
-					id="name"
-					value={name}
-					placeholder="Name"
-					onChange={e => setName(e.target.value)}
-					onBlur={e => setName(e.target.value)}
-					className="input"
-					/>
-				</label>
+		<div data-test="feedback-form">
+			<form>
+				<div className="input-group" data-test="feedback-form-name-group">
+					<label htmlFor="name">
+						<p className="input-label" data-test="feedback-form-name-label">Name</p>
+						<input 
+						id="name"
+						value={name}
+						placeholder="Name"
+						onChange={e => setName(e.target.value)}
+						onBlur={e => setName(e.target.value)}
+						className="input"
+						data-test="feedback-form-name-input"
+						/>
+					</label>
 				</div>
-				<div className="input-group">
+				<div className="input-group" data-test="feedback-form-email-group">
 					<label htmlFor="email">
-						<p className="input-label">Email</p>
+						<p className="input-label" data-test="feedback-form-email-label">Email</p>
 						<input
 						id="email"
 						value={email}
@@ -60,27 +59,35 @@ const FeedbackForm = ({ onAddComment }) => {
 						onChange={e => setEmail(e.target.value)}
 						onBlur={e => setEmail(e.target.value)}
 						className="input"
+						data-test="feedback-form-email-input"
 						/>
 					</label>
 				</div>
 				<RatingInput />
-				<div className="input-group">
+				<div className="input-group" data-test="feedback-form-comment-group">
 					<label htmlFor="comment">
-					<p className="input-label">Comment</p>
+					<p className="input-label" data-test="feedback-form-comment-label">Comment</p>
 						<textarea 
 							id="comment"
 							value={comment}
 							onChange={e => setComment(e.target.value)}
 							onBlur={e => setComment(e.target.value)}
 							className="textarea"
+							data-test="feedback-form-comment-input"
 						/>
 					</label>
 				</div>
 				<div className="flex flex-justify-end">
 					<button 
 						type="submit" 
-						className={`${canSubmitForm ? 'submit-button active' : 'submit-button'}`}
-						disabled={!canSubmitForm}
+						className={`${canUserSubmit ? 'submit-button active' : 'submit-button'}`}
+						disabled={!canUserSubmit}
+						data-test="feedback-form-submit-button"
+						onClick={(e) => {
+							e.preventDefault();
+
+							onClickSubmit();
+						}}
 					>
 						Submit
 					</button>

@@ -14,7 +14,7 @@ const FeedbackGraph = ({ data }) => {
 
 	return (
 		<div className="chart">
-			<h4>{`${data.length} customer ratings`}</h4>
+			<h4 data-test="customer-rating-count">{`${data.length} customer ratings`}</h4>
 			<VictoryChart domainPadding={20} animate={{ duration: 100 }}>
 				<VictoryBar
 					cornerRadius={3}

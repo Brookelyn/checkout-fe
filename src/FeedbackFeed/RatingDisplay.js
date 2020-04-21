@@ -8,7 +8,7 @@ const RatingDisplay = ({rating}) => {
 		stars.push(<Star key={i} isFilled size="small" />);
 	}
 
-	return <div>{stars}</div>
+	return <div data-test="feedback-item-rating">{stars}</div>
 }
 
 export default RatingDisplay;
