@@ -8,6 +8,7 @@ class FeedbackView extends React.Component {
 	render() {
 		return (
 			<Fragment>
+				<h1>Have something to say? Let us know what you think!</h1>
 				<div className="flex">
 					<div className="flex-1">
 						<FeedbackForm />
